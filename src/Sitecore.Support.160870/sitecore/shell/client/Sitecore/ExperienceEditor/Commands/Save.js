@@ -36,8 +36,8 @@
             if (postElements) {
                 for (var i = 0; i < postElements.length; i++) {
                     fields[postElements[i].id] = postElements[i].value;
-                    while ((fields[postElements[i].id].indexOf("&amp;quot;") > -1) || (fields[postElements[i].id].indexOf("&quot;") > -1)) {
-                        fields[postElements[i].id] = fields[postElements[i].id].replace("&amp;quot;", "'").replace("&quot;", "'");
+                    while ((fields[postElements[i].id].indexOf("&amp;quot;") > -1) || (fields[postElements[i].id].indexOf("&quot;") > -1) || (fields[postElements[i].id].indexOf("%") > -1)) {
+                        fields[postElements[i].id] = fields[postElements[i].id].replace("&amp;quot;", "'").replace("&quot;", "'").replace("%", "&#37;");
                     }
                 }
             }
