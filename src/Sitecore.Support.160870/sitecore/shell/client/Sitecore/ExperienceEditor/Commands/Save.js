@@ -35,10 +35,8 @@
             var fields = {};
             if (postElements) {
                 for (var i = 0; i < postElements.length; i++) {
-                    fields[postElements[i].id] = postElements[i].value;
-                    while ((fields[postElements[i].id].indexOf("&amp;quot;") > -1) || (fields[postElements[i].id].indexOf("&quot;") > -1) || (fields[postElements[i].id].indexOf("%") > -1)) {
-                        fields[postElements[i].id] = fields[postElements[i].id].replace("&amp;quot;", "'").replace("&quot;", "'").replace("%", "&#37;");
-                    }
+                    fields[postElements[i].id] = postElements[i].value.replace(/&amp;quot;/g, "'").replace(/&quot;/g, "'");
+                    fields[postElements[i].id] = ExperienceEditor.Web.encodeHtml(fields[postElements[i].id]);
                 }
             }
             //end fix
